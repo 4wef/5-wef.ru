@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>looper136 | Визитка</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #004c3f;
+      overflow: hidden;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    .card {
+      position: relative;
+      z-index: 1;
+      background: #00000037;
+      border: 2px solid #ffffff;
+      border-radius: 20px;
+      padding: 50px 30px;
+      text-align: center;
+      width: 720px;
+      height: 420px;
+      box-sizing: border-box;
+    }
+
+    .card h1 {
+      margin: 0 0 40px 0;
+      color: #ffffff;
+      font-size: 42px;
+      font-weight: 900;
+      font-family: "Segoe UI Black", "Segoe UI", sans-serif;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .buttons a {
+      display: block;
+      padding: 16px 24px;
+      border-radius: 12px;
+      text-decoration: none;
+      text-align: center;
+      background: #ffffff;
+      color: #000000;
+      font-weight: bold;
+      font-size: 18px;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .buttons a:hover {
+      background: #cccccc;
+      transform: scale(1.07);
+    }
+
+    /* Плавный чёрный переход */
+    .fade {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #000;
+      opacity: 1;
+      pointer-events: auto;
+      transition: opacity 1.5s;
+      z-index: 100;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>looper136</h1>
+    <div class="buttons">
+      <a href="https://example.com">Ссылка 1</a>
+      <a href="https://example.com">Ссылка 2</a>
+      <a href="https://example.com">Ссылка 3</a>
+    </div>
+  </div>
+
+  <!-- затемнение -->
+  <div class="fade" id="fade"></div>
+
+  <script>
+    window.onload = () => {
+      const fade = document.getElementById('fade');
+      setTimeout(() => {
+        fade.style.opacity = '0';
+        fade.style.pointerEvents = 'none';
+      }, 50);
+    };
+  </script>
+</body>
+</html>

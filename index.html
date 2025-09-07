@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>5_wef | Визитка</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #383132;
+      overflow: hidden;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    .background {
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      background: url("pattern.png") repeat;
+      background-size: 300px 300px;
+      opacity: 0.3;
+      transform: rotate(25deg);
+      animation: moveBg 30s linear infinite;
+      z-index: 0;
+    }
+
+    @keyframes moveBg {
+      from { background-position: 0 0; }
+      to { background-position: 0 -300px; }
+    }
+
+    .card {
+      position: relative;
+      z-index: 1;
+      background: #00000037;
+      border: 2px solid #ffffff;
+      border-radius: 20px;
+      padding: 50px 30px;
+      text-align: center;
+      width: 720px;
+      height: 420px;
+      box-sizing: border-box;
+    }
+
+    .card h1 {
+      margin: 0 0 40px 0;
+      color: #ffffff;
+      font-size: 42px;
+      font-weight: 900;
+      font-family: "Segoe UI Black", "Segoe UI", sans-serif;
+    }
+
+    .buttons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .buttons a {
+      display: block;
+      padding: 16px;
+      border-radius: 12px;
+      text-decoration: none;
+      text-align: center;
+      background: #ffffff;
+      color: #000000;
+      font-weight: bold;
+      font-size: 18px;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .buttons a:hover {
+      background: #cccccc;
+      transform: scale(1.07);
+    }
+
+    /* Секретная кнопка */
+    .secret-btn {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      width: 80px;
+      height: 80px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      z-index: 10;
+    }
+
+    /* Плавный чёрный переход */
+    .fade {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 1.5s;
+      z-index: 100;
+    }
+    .fade.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* Видео */
+    video.fullscreen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 200;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="background"></div>
+
+  <div class="card">
+    <h1>5_wef</h1>
+    <div class="buttons">
+      <a href="https://youtube.com" target="_blank">YouTube</a>
+      <a href="https://t.me" target="_blank">Telegram</a>
+      <a href="https://roblox.com" target="_blank">Roblox</a>
+      <a href="https://discord.com" target="_blank">Discord</a>
+    </div>
+  </div>
+
+  <!-- секретная кнопка -->
+  <button class="secret-btn"></button>
+
+  <!-- затемнение -->
+  <div class="fade" id="fade"></div>
+
+  <!-- видео -->
+  <video id="rickroll" class="fullscreen" src="rickroll.mp4"></video>
+
+  <script>
+    const btn = document.querySelector('.secret-btn');
+    const fade = document.getElementById('fade');
+    const video = document.getElementById('rickroll');
+
+    btn.addEventListener('click', () => {
+      fade.classList.add('active');
+      setTimeout(() => {
+        if (Math.random() < 0.75) {
+          // показываем видео
+          video.style.display = 'block';
+          video.play();
+        } else {
+          // переход на другую страницу
+          window.location.href = 'looper.html';
+        }
+      }, 1500); // ждём завершения анимации
+    });
+  </script>
+</body>
+</html>
