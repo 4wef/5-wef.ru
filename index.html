@@ -14,7 +14,6 @@
       overflow: hidden;
       font-family: "Segoe UI", sans-serif;
     }
-
     .background {
       position: absolute;
       width: 200%;
@@ -26,25 +25,22 @@
       animation: moveBg 30s linear infinite;
       z-index: 0;
     }
-
     @keyframes moveBg {
       from { background-position: 0 0; }
       to { background-position: 0 -300px; }
     }
-
     .card {
       position: relative;
       z-index: 1;
       background: #00000037;
-      border: 2px solid #ffffff;
+      border: 5px solid #ffffff;
       border-radius: 20px;
       padding: 50px 30px;
       text-align: center;
-      width: 720px;
+      width: 660px;
       height: 420px;
       box-sizing: border-box;
     }
-
     .card h1 {
       margin: 0 0 40px 0;
       color: #ffffff;
@@ -52,13 +48,11 @@
       font-weight: 900;
       font-family: "Segoe UI Black", "Segoe UI", sans-serif;
     }
-
     .buttons {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 20px;
     }
-
     .buttons a {
       display: block;
       padding: 16px;
@@ -71,13 +65,10 @@
       font-size: 18px;
       transition: background 0.2s, transform 0.2s;
     }
-
     .buttons a:hover {
       background: #cccccc;
       transform: scale(1.07);
     }
-
-    /* Секретная кнопка */
     .secret-btn {
       position: absolute;
       bottom: 20px;
@@ -89,8 +80,6 @@
       cursor: pointer;
       z-index: 10;
     }
-
-    /* Плавный чёрный переход */
     .fade {
       position: fixed;
       top: 0;
@@ -107,8 +96,6 @@
       opacity: 1;
       pointer-events: auto;
     }
-
-    /* Видео */
     video.fullscreen {
       position: fixed;
       top: 0;
@@ -123,7 +110,6 @@
 </head>
 <body>
   <div class="background"></div>
-
   <div class="card">
     <h1>5_wef</h1>
     <div class="buttons">
@@ -131,20 +117,13 @@
       <a href="https://t.me/five_wef" target="_blank">Telegram</a>
       <a href="https://www.roblox.com/users/414152333/profile" target="_blank">Roblox</a>
       <a href="discord://-/users/950760090586218527" target="_blank">Discord</a>
-      <a href="?????????????????????????????????????????????" target="_blank">???</a>
-      <a href="?????????????????????????????????????????????" target="_blank">???</a>
+      <a href="https://??????????????????????????????????????????????????????????????????????????????????????????.com" target="_blank">???</a>
+      <a href="https://??????????????????????????????????????????????????????????????????????????????????????????.com" target="_blank">???</a>
     </div>
   </div>
-
-  <!-- секретная кнопка -->
   <button class="secret-btn"></button>
-
-  <!-- затемнение -->
   <div class="fade" id="fade"></div>
-
-  <!-- видео -->
   <video id="rickroll" class="fullscreen" src="rickroll.mp4"></video>
-
   <script>
     const btn = document.querySelector('.secret-btn');
     const fade = document.getElementById('fade');
@@ -154,14 +133,12 @@
       fade.classList.add('active');
       setTimeout(() => {
         if (Math.random() < 0.75) {
-          // показываем видео
           video.style.display = 'block';
           video.play();
         } else {
-          // переход на другую страницу
           window.location.href = 'looper.html';
         }
-      }, 1500); // ждём завершения анимации
+      }, 1500);
     });
   </script>
 </body>
