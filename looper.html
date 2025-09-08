@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>looper136 | Визитка</title>
+  <title>???</title>
   <style>
     body {
       margin: 0;
@@ -15,16 +15,35 @@
       font-family: "Segoe UI", sans-serif;
     }
 
+    /* Фон с узором */
+    .background {
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      background: url("l.png") repeat;
+      background-size: 300px 300px;
+      opacity: 0.3;
+      transform: rotate(25deg);
+      animation: moveBg 30s linear infinite;
+      z-index: 0;
+    }
+
+    @keyframes moveBg {
+      from { background-position: 0 0; }
+      to { background-position: 0 -300px; }
+    }
+
+    /* Карточка */
     .card {
       position: relative;
       z-index: 1;
       background: #00000037;
-      border: 2px solid #ffffff;
+      border: 5px solid #ffffff;
       border-radius: 20px;
       padding: 50px 30px;
       text-align: center;
       width: 720px;
-      height: 420px;
+      height: 300px;
       box-sizing: border-box;
     }
 
@@ -76,12 +95,14 @@
   </style>
 </head>
 <body>
+  <div class="background"></div>
+
   <div class="card">
     <h1>looper136</h1>
     <div class="buttons">
-      <a href="https://example.com">Ссылка 1</a>
-      <a href="https://example.com">Ссылка 2</a>
-      <a href="https://example.com">Ссылка 3</a>
+      <a href="https://tuforums.com/profile/709">Tuforums</a>
+      <a href="https://www.youtube.com/@looper136_adofai">Youtube</a>
+      <a href="https://twitch.tv/5_wef">Twitch</a>
     </div>
   </div>
 
